@@ -1,12 +1,12 @@
-import profileImage from './img/pic.jpg';
 import './App.css';
+import ReactCanvas from './components/babylontest';
 
 function App() {
   return (
     <div className="App">
-      <h1>My react app</h1>
-      <h2>Author: Martin</h2>
-      <img src={profileImage} alt="profile-image" />
+      <header className="App-header">
+        <ReactCanvas/>
+      </header>
     </div>
   );
 }
