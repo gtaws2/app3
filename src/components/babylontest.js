@@ -2,8 +2,8 @@ import React, {useRef, useEffect} from 'react'
 import {Engine, Scene, ArcRotateCamera, HemisphericLight, MeshBuilder, Vector3} from '@babylonjs/core'
 
 const mystyle = {
-    width: "100%",
-    height: "100%"
+    width: "100vw",
+    height: "100vh"
 }
 
 const ReactCanvas = props => {
