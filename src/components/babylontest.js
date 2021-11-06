@@ -24,6 +24,12 @@ const ReactCanvas = props => {
         
             const box = MeshBuilder.CreateBox("box", {});
         
+            const xr = scene.createDefaultXRExperienceAsync({
+                uiOptions: {
+                    sessionMode: "immersive-ar"
+                },
+            });
+
             return scene;
         }
 
