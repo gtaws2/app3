@@ -22,7 +22,7 @@ const ReactCanvas = props => {
         
             const light = new HemisphericLight("light", new Vector3(0, 1, 0));
         
-            const box = MeshBuilder.CreateBox("box", {});
+            const box = MeshBuilder.CreateBox("box", {height: 0.2, width: 0.2, depth: 0.2});
         
             const xr = scene.createDefaultXRExperienceAsync({
                 uiOptions: {
