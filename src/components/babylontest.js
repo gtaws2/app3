@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react'
-import {Engine, Scene, ArcRotateCamera, HemisphericLight, MeshBuilder, Vector3} from '@babylonjs/core'
+import {Engine, Scene, ArcRotateCamera, HemisphericLight, MeshBuilder, Vector3, StandardMaterial, Color3} from '@babylonjs/core'
 
 const mystyle = {
     width: "100vw",
@@ -16,14 +16,18 @@ const ReactCanvas = props => {
 
         const createScene =  () => {
             const scene = new Scene(engine);
-        
+            scene.ambientColor = new Color3(1, 1, 1);
+
             const camera = new ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new Vector3(0, 0, 0));
             camera.attachControl(canvas, true);
         
-            const light = new HemisphericLight("light", new Vector3(0, 1, 0));
+            const light = new HemisphericLight("light", new Vector3(-1, 1, 0));
         
-            const box = MeshBuilder.CreateBox("box", {height: 0.2, width: 0.2, depth: 0.2});
-        
+            const box = MeshBuilder.CreateBox("box", {height: 0.2, width: 0.2, depth: 0.2}, scene);
+            var greenMat = new StandardMaterial("redMat", scene);
+	        greenMat.ambientColor = new Color3(1, 0, 0);
+            box.material = greenMat;
+
             const xr = scene.createDefaultXRExperienceAsync({
                 uiOptions: {
                     sessionMode: "immersive-ar"
